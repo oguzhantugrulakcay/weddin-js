@@ -1,66 +1,48 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Cupples from "@/components/cupple";
+import ImageSlider from "@/components/imageSlider";
+import ClientTimer from "@/components/ClientTimer";
+import { TimeLine } from "@/components/timeLine"; // Sadece TimeLine'ı import etmek yeterli
 
 export default function Home() {
+  const timelineEvents = [
+    { 
+      id: 1, 
+      title: "Düğün Töreni", 
+      description: "03 Ocak 2026, Cumartesi - Saat 19:00", 
+      location: "The Marmara Taksim, İstanbul",
+      date: new Date("2026-01-03T19:00:00"),
+      image: "images/bride.jpg"
+    },
+    { 
+      id: 2, 
+      title: "Nikah Töreni", 
+      description: "03 Ocak 2026, Cumartesi - Saat 17:00", 
+      location: "The Marmara Taksim, İstanbul",
+      date: new Date("2026-01-03T17:00:00"),
+      image: "images/bride.jpg"
+    },
+    { 
+      id: 3, 
+      title: "Kına Gecesi", 
+      description: "02 Ocak 2026, Cuma - Saat 20:00", 
+      location: "The Marmara Taksim, İstanbul",
+      date: new Date("2026-01-02T20:00:00"),
+      image: "images/bride.jpg"
+    }
+  ];
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div>
+      <TimeLine items={timelineEvents} />
+      
+      <Cupples ladyName={"Hande Gözütok"} gentlemanName={"Oğuzhantuğrul Akçay"} ladyPhotoName={"images/bride.jpg"} gentlemanPhotoName={"images/groom.jpg"} iconName={"favorite_border"} messageTitle={"Bir Ömür Boyu Mutluluk"} messageSubtitle={"Sizleri Aramızda Görmek İsteriz"} />
+
+      <ImageSlider images={["images/bride.jpg", "images/cover_bg_1.jpg"]} />
+      <div className="d-felex justify-content-center align-items-center">
+        <h1>Sizleri Aramızda Göremek İsteriz</h1>
+      </div>
+      
+      <ClientTimer targetDate="2026-01-03" />
     </div>
   );
 }
