@@ -12,8 +12,10 @@
     "bootstrap": "^5.3.8",
     "material-icons": "^1.13.14",
     "next": "16.0.3",
+    "nodemailer": "^7.0.10",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "sweetalert": "^2.1.2",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
