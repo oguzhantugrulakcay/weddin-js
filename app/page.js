@@ -44,7 +44,7 @@ export default function Home() {
             <a href="#" className="btn btn-thematic mt-4 mb-4">Konum</a>
           </div>
           <div className="col-sm-2 d-grid">
-            <a href="#" className="btn btn-thematic mt-4 mb-4">Takvime Ekle</a>
+            <a href="/api/generate-ics" className="btn btn-thematic mt-4 mb-4">Takvime Ekle</a>
           </div>
         </div>
       </div>

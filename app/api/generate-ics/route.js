@@ -46,7 +46,7 @@ END:VCALENDAR`;
         status: 200,
         headers: {
             'Content-Type': 'text/calendar',
-            'Content-Disposition': 'attachment; filename="dugun-etkinligi.ics"',
+            'Content-Disposition': 'attachment; filename="event.ics"',
         },
     });
 }
