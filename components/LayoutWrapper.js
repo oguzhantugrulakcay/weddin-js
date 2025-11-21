@@ -28,7 +28,7 @@ export default function LayoutWrapper({ children }) {
   return (
     <>
       {isHomePage && (
-        <Hero title="Hande & Oğuzhantuğrul" subtitle="Nişan Davetiyesi" date={date} backgroundImage="images/cover_bg_1.jpg" />
+        <Hero title="Hande & Oğuzhantuğrul" subtitle="Nişan Davetiyesi" date={date} backgroundImage="/images/bian_event.jpg" />
       )}
       <Navbar />
       <main className={!isHomePage ? 'container mt-5 pt-5' : 'container'}>

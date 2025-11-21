@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div>
-      <Cupples ladyName={"Hande Gözütok"} gentlemanName={"Oğuzhantuğrul Akçay"} ladyPhotoName={"images/bride.jpg"} gentlemanPhotoName={"images/groom.jpg"} iconName={"favorite_border"} messageTitle={"Bir Ömür Boyu Mutluluk"} messageSubtitle={"Sizleri Aramızda Görmek İsteriz"} />
+      <Cupples ladyName={"Hande Gözütok"} gentlemanName={"Oğuzhantuğrul Akçay"} ladyPhotoName={"images/hande-2.jpg"} gentlemanPhotoName={"images/ozi-1.jpg"} iconName={"favorite_border"} messageTitle={"Bir Ömür Boyu Mutluluk"} messageSubtitle={"Sizleri Aramızda Görmek İsteriz"} />
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
@@ -48,7 +48,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <ImageSlider images={["images/bride.jpg", "images/cover_bg_1.jpg"]} />
+      <ImageSlider images={["images/hande-2.jpg", "images/cover_bg_1.jpg"]} />
       <div className="d-felex justify-content-center align-items-center">
 
       </div>
