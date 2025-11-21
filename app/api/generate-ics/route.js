@@ -23,7 +23,7 @@ export async function GET(request) {
             start: '20260719T190000Z',
             end: '20260719T230000Z',
             description: 'Büyük günümüzde yanımızda olmanız dileğiyle.',
-            location: "Teras Dragos Bi'an Event Salonu -Kartal/İstanbul",
+            location: "Suare Event VIP Salonu - Tuzla/İstanbul",
         };
     }
 
