@@ -116,15 +116,31 @@ body {
     align-items: center;
 }
 
+/* Timer kutuları dikey tam ortalama düzeltmesi */
+.timer-container .timer-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* dikey merkez */
+    align-items: center;     /* yatay merkez */
+    line-height: 1;          /* tutarlı satır yüksekliği */
+}
+
+/* Sayı ve param metinlerini sıfırla */
 .timer-container .timer-box .timer-number {
-    font-size: 40px;
-    margin-bottom: -10px;
-    font-weight: bold;
+    margin: 0;               /* negatif margin'i kaldır */
+    line-height: 1;          /* kutu içinde taşmayı azalt */
 }
 
 .timer-container .timer-box .timer-param {
-    font-size: 30px;
-    font-weight: bold;
+    margin: 6px 0 0;         /* sayı ile aralık */
+    line-height: 1; 
+}
+
+/* Küçük ekranlarda aralık biraz azalsın (isteğe bağlı) */
+@media (max-width: 576px) {
+    .timer-container .timer-box .timer-param {
+        margin-top: 4px;
+    }
 }
 
 
@@ -208,32 +224,6 @@ body {
     border-radius: 50px 50px 50px 50px;
 }
 
-.timeline .timeline-left-card::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -15px;
-    background-color: white;
-    border: 4px solid var(--alternative-color);
-    top: 40%;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.timeline .timeline-right-card::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: -12px;
-    background-color: white;
-    border: 4px solid var(--alternative-color);
-    top: 40%;
-    border-radius: 50%;
-    z-index: 1;
-}
-
 .timeline .timeline-left-card {
     padding: 10px 40px;
     position: relative;
@@ -282,8 +272,354 @@ body {
     border-color: transparent white transparent transparent;
 }
 
+/* Reveal animasyonu */
+.timeline-item-reveal {
+    opacity: 0;
+    transform: translateY(70px) scale(.98);
+    transition: transform .7s cubic-bezier(.21,.8,.32,1), opacity .7s cubic-bezier(.21,.8,.32,1);
+    will-change: transform, opacity;
+}
+.timeline-item-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Hareket tercihlerini dikkate al */
+@media (prefers-reduced-motion: reduce) {
+    .timeline-item-reveal {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+/* Reveal wrapper (kart dışı) */
+.timeline-reveal-wrapper {
+    opacity: 0;
+    transform: translateY(70px);
+    transition: transform .7s cubic-bezier(.21,.8,.32,1), opacity .7s cubic-bezier(.21,.8,.32,1);
+    will-change: transform, opacity;
+}
+.timeline-reveal-wrapper.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hareket azaltma tercihi */
+@media (prefers-reduced-motion: reduce) {
+    .timeline-reveal-wrapper {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;
     }
+}
+
+/* === Responsive Düzenler === */
+
+/* Tablet ve küçük dizüstü (≤992px) */
+@media (max-width: 992px) {
+    body {
+        font-size: 18px;
+    }
+    .hero .hero-title { font-size: 34px; }
+    .hero .hero-subtitle,
+    .hero .hero-date { font-size: 24px; }
+    .timer-container { gap: 14px; }
+    .timer-container .timer-box {
+        width: 100px;
+        height: 100px;
+    }
+    .timer-container .timer-box .timer-number { font-size: 34px; }
+    .timer-container .timer-box .timer-param { font-size: 24px; }
+    .cupple-container .cupple-message-container .cupple-title { font-size: 34px; }
+    .cupple-container .cupple-photos-container .cupple-item img {
+        width: 160px; height:160px;
+    }
+}
+
+/* Tablet / Büyük Telefon (≤768px) */
+@media (max-width: 768px) {
+    
+    .main-navbar .nav-link { padding: 8px 12px; }
+    .hero { height: 100vh; }
+    .hero .hero-title { font-size: 30px; }
+    .hero .hero-subtitle,
+    .hero .hero-date { font-size: 22px; }
+    .timer-container { flex-wrap: wrap; }
+    .timer-container .timer-box {
+        width: 90px;
+        height: 90px;
+    }
+    .timer-container .timer-box .timer-number { font-size: 30px; }
+    .timer-container .timer-box .timer-param { font-size: 20px; }
+
+    .cupple-container { margin-top: 30px; }
+    .cupple-container .cupple-photos-container { flex-direction: column; gap: 20px; padding: 0 20px;}
+    .cupple-container .cupple-photos-container .cupple-icon span { font-size: 60px; margin: 10px 0; }
+    .cupple-container .cupple-message-container .cupple-title { font-size: 30px; }
+    .cupple-container .cupple-message-container .cupple-subtitle { font-size: 18px; }
+
+    .image-slider{
+        width: 100vh;
+        position: relative;
+        left: -25px;
+    }
+
+    /* Timeline dikey çizgiyi sola al */
+    .timeline::after {
+        left: 28px;
+        top: 25px;
+        bottom: 25px;
+    }
+    .timeline .timeline-left-card,
+    .timeline .timeline-right-card {
+        width: 100%;
+        left: 0;
+        padding: 15px 20px 15px 70px;
+        margin-bottom: 30px;
+        border-radius: 35px;
+    }
+    /* Sağ kart okunu sola çevir */
+    .timeline .timeline-right-card::before {
+        left: -15px;
+        right: auto;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--alternative-color) transparent transparent;
+    }
+    .timeline img{
+        display:none;
+    }
+    /* Sol kart okunu ayarla */
+    .timeline .timeline-left-card::before {
+        left: -15px;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--alternative-color) transparent transparent;
+    }
+    /* İç resim / metin tek sütun */
+    .timeline .timeline-left-card .row,
+    .timeline .timeline-right-card .row { flex-direction: column; }
+    .timeline .timeline-left-card .col-lg-4,
+    .timeline .timeline-right-card .col-lg-4,
+    .timeline .timeline-left-card .col-lg-8,
+    .timeline .timeline-right-card .col-lg-8 {
+        width: 100%;
+        max-width: 100%;
+    }
+    .timeline .card-body { padding: 15px 10px; text-align: center; }
+}
+
+/* Küçük Telefon (≤576px) */
+@media (max-width: 576px) {
+    body { font-size: 16px; }
+    .hero { height: 100vh;
+     }
+    .hero .hero-title { font-size: 26px; }
+    .hero .hero-subtitle,
+    .hero .hero-date { font-size: 18px; }
+    .timer-container { gap: 10px; }
+    .timer-container .timer-box {
+        width: 75px;
+        height: 75px;
+    }
+    .timer-container .timer-box .timer-number { font-size: 26px; }
+    .timer-container .timer-box .timer-param { font-size: 16px; }
+
+    .cupple-container .cupple-photos-container .cupple-item img {
+        width: 140px; height:140px;
+    }
+    .cupple-container .cupple-message-container .cupple-title { font-size: 26px; }
+    .cupple-container .cupple-message-container .cupple-subtitle { font-size: 16px; }
+
+    .timeline { margin: 0 auto; }
+    .timeline::after { left: 22px; width:4px; }
+    .timeline .timeline-left-card,
+    .timeline .timeline-right-card {
+        padding: 12px 16px 12px 60px;
+        border-width: 4px;
+    }
+    .timeline .timeline-left-card::before,
+    .timeline .timeline-right-card::before {
+        top: 12px;
+        left: -12px;
+        border-width: 8px 8px 8px 0;
+    }
+    .timeline .card-body h3,
+    .timeline .card-body h5 { font-size: 20px; }
+    .timeline .card-body p { font-size: 16px; }
+}
+
+/* Çok küçük (≤400px) */
+@media (max-width: 400px) {
+    .hero .hero-title { font-size: 22px; }
+    .timer-container .timer-box {
+        width: 65px; height:65px;
+    }
+    .timer-container .timer-box .timer-number { font-size:22px; }
+    .timer-container .timer-box .timer-param { font-size:14px; }
+    .timeline .timeline-left-card,
+    .timeline .timeline-right-card {
+        padding: 10px 14px 10px 54px;
+    }
+}
+
+/* Slider temel düzeni */
+.image-slider {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+    overflow: hidden; /* taşan içerik gizlensin */
+    display: flex;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+}
+
+/* Kaydırılan öğeler (resimler ya da wrapper div’ler) */
+.image-slider > * {
+    flex: 0 0 auto;
+    width: 100%;
+    scroll-snap-align: center;
+}
+
+/* Resimler tam görünür olsun */
+.image-slider img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* Yatay kaydırmalı (çoklu resim) görünüm istiyorsanız küçük ekranda kart daraltma */
+@media (max-width: 768px) {
+    .image-slider {
+        width: 100vw;              /* görünüm genişliği */
+        max-width: none;
+        margin-left: calc(50% - 50vw); /* container merkezlemesini kır */
+        margin-right: calc(50% - 50vw);
+        padding: 0;                /* iç boşluk yok */
+        gap: 0;                     /* aralık yok; tam dolsun */
+        border-radius: 0;
+    }
+    .image-slider > * {
+        width: 100vw;
+    }
+    .image-slider img {
+        width: 100vw;
+        height: auto;
+        border-radius: 0;          /* kenarlarda boşluk kalmasın */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-slider {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+    }
+    .image-slider > *,
+    .image-slider img {
+        width: 100vw;
+    }
+}
+
+/* MOBIL TIMELINE YENI TASARIM (≤768px) */
+@media (max-width: 768px) {
+
+  /* Dikey çizgi sola, tam yükseklik */
+  .timeline {
+    max-width: 100%;
+    padding-left: 54px; /* çizgi + daireler için alan */
+    position: relative;
+  }
+
+  .timeline::after {
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--alternative-color);
+    border-radius: 4px;
+  }
+
+  /* Tüm kartları tek kolon yap ve tam genişlik */
+  .timeline .timeline-left-card,
+  .timeline .timeline-right-card {
+    width: 100%;
+    left: 0;
+    margin: 0 0 32px 0;
+    padding: 18px 20px 18px 28px;
+    background: #fff;
+    border: 2px solid var(--alternative-color);
+    border-radius: 18px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+
+  /* Karttaki görseli üstte tam genişlik (istersen kaldır) */
+  .timeline .row {
+    flex-direction: column;
+  }
+  .timeline .col-lg-4,
+  .timeline .col-lg-8 {
+    width: 100%;
+    max-width: 100%;
+  }
+  .timeline img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 14px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* Okları tamamen kaldır */
+  .timeline .timeline-left-card::before,
+  .timeline .timeline-right-card::before {
+    display: none;
+  }
+
+  /* Daire (step) – her kartın soluna çizgi üzerinde */
+  .timeline .timeline-left-card::after,
+  .timeline .timeline-right-card::after {
+    content: "";
+    position: absolute;
+    top: 28px; /* içerik üstünden hizalama */
+    left: -34px; /* çizgi + boşluk */
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff; /* çizgi üstünde temiz görünüm */
+  }
+
+  /* Kart içerik tipografi mobil ayarı */
+  .timeline .card-body h3,
+  .timeline .card-body h5 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .timeline .card-body p {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  /* Animasyon wrapper aynı kalabilir */
+  .timeline-reveal-wrapper {
+    transform: translateY(60px);
+  }
+  .timeline-reveal-wrapper.is-visible {
+    transform: translateY(0);
+  }
 }
