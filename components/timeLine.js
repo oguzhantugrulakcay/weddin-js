@@ -4,13 +4,23 @@ import PropTypes from 'prop-types';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-export function TimeLineItem({ title, description, location }) {
+function formatDate(d) {
+    if (!(d instanceof Date)) return '';
+    return d.toLocaleDateString('tr-TR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    }).replace(',', ' -');
+}
+
+export function TimeLineItem({ title, description, location, date }) {
     return (
         <div className="timeline-item">
             <div className="timeline-item-content">
-                <span className="tag">{location}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
+                <p className="date">{formatDate(date)}</p>
+                <p className="tag">{location}</p>
                 <span className="circle"></span>
             </div>
         </div>
@@ -21,9 +31,10 @@ TimeLineItem.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
+    date: PropTypes.instanceOf(Date).isRequired
 };
 
-export function TimeLine({ items = [] }) {
+function TimeLine({ items = [] }) {
     const sortedItems = [...items].sort((a, b) => a.date - b.date);
     const revealRefs = useRef([]);
 
@@ -73,6 +84,7 @@ export function TimeLine({ items = [] }) {
                                         <TimeLineItem
                                             title={item.title}
                                             description={item.description}
+                                            date={item.date}
                                             location={item.location}
                                         />
                                     </div>
@@ -85,6 +97,8 @@ export function TimeLine({ items = [] }) {
         </div>
     );
 }
+
+export default TimeLine;
 
 TimeLine.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({

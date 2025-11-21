@@ -14,13 +14,10 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link href="/us" className="nav-link">Çift</Link>
+                            <Link href="/ourstory" className="nav-link">Hikayemiz</Link>
                         </li>
                         <li className="nav-item">
-                            <Link href="#story" className="nav-link">Hikayemiz</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link href="#gallery" className="nav-link">Galeri</Link>
+                            <Link href="/gallery" className="nav-link">Galeri</Link>
                         </li>
                     </ul>
                 </div>

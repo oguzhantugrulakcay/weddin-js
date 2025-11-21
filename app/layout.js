@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'material-icons/iconfont/material-icons.css';
 import "./globals.css";
+import './mobile.css'; // mobil stiller eklendi
 import LayoutWrapper from "@/components/LayoutWrapper"; // Yeni bileşeni import ediyoruz.
 
 const geistSans = Geist({

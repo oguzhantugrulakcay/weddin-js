@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react'; // useEffect'i import ediyoruz
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
+import RSVP from './rsvp';
 
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
@@ -32,6 +33,7 @@ export default function LayoutWrapper({ children }) {
       <Navbar />
       <main className={!isHomePage ? 'container mt-5 pt-5' : 'container'}>
         {children}
+        <RSVP />
       </main>
     </>
   );

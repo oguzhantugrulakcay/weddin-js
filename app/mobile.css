@@ -1,0 +1,137 @@
+/* Tablet ve küçük dizüstü (≤992px) */
+@media (max-width: 992px) {
+  body { font-size:18px; }
+  .hero .hero-title { font-size:34px; }
+  .hero .hero-subtitle,
+  .hero .hero-date { font-size:24px; }
+  .timer-container { gap:14px; }
+  .timer-container .timer-box { width:100px; height:100px; }
+  .timer-container .timer-box .timer-number { font-size:34px; }
+  .timer-container .timer-box .timer-param { font-size:24px; }
+  .cupple-container .cupple-message-container .cupple-title { font-size:34px; }
+  .cupple-container .cupple-photos-container .cupple-item img { width:160px; height:160px; }
+}
+
+/* Tablet / Büyük Telefon (≤768px) genel + slider + ilk timeline ayarları */
+@media (max-width: 768px) {
+  .main-navbar .nav-link { padding:8px 12px; }
+  .hero { height:100vh; }
+  .hero .hero-title { font-size:30px; }
+  .hero .hero-subtitle,
+  .hero .hero-date { font-size:22px; }
+
+  .timer-container { flex-wrap:wrap; }
+  .timer-container .timer-box { width:90px; height:90px; }
+  .timer-container .timer-box .timer-number { font-size:30px; }
+  .timer-container .timer-box .timer-param { font-size:20px; }
+
+  .cupple-container { margin-top:30px; }
+  .cupple-container .cupple-photos-container { flex-direction:column; gap:20px; padding:0 20px; }
+  .cupple-container .cupple-photos-container .cupple-icon span { font-size:60px; margin:10px 0; }
+  .cupple-container .cupple-message-container .cupple-title { font-size:30px; }
+  .cupple-container .cupple-message-container .cupple-subtitle { font-size:18px; }
+
+  .image-slider { width:100vw; max-width:none; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); padding:0; gap:0; border-radius:0; }
+  .image-slider > * { width:100vw; }
+  .image-slider img { width:100vw; height:auto; border-radius:0; }
+
+  /* Orijinal iki kolon timeline'ı mobilde tam genişlik */
+  .timeline::after { left:28px; top:25px; bottom:25px; }
+  .timeline .timeline-left-card,
+  .timeline .timeline-right-card {
+    width:100%; left:0; padding:15px 20px 15px 70px;
+    margin-bottom:30px; border-radius:35px;
+  }
+  .timeline .timeline-right-card::before {
+    left:-15px; right:auto;
+    border-width:10px 10px 10px 0;
+    border-color:transparent var(--alternative-color) transparent transparent;
+  }
+  .timeline .timeline-left-card::before {
+    left:-15px;
+    border-width:10px 10px 10px 0;
+    border-color:transparent var(--alternative-color) transparent transparent;
+  }
+  .timeline img { display:none; }
+  .timeline .timeline-left-card .row,
+  .timeline .timeline-right-card .row { flex-direction:column; }
+  .timeline .timeline-left-card .col-lg-4,
+  .timeline .timeline-right-card .col-lg-4,
+  .timeline .timeline-left-card .col-lg-8,
+  .timeline .timeline-right-card .col-lg-8 { width:100%; max-width:100%; }
+  .timeline .card-body { padding:15px 10px; text-align:center; }
+}
+
+/* Küçük Telefon (≤576px) */
+@media (max-width: 576px) {
+  body { font-size:16px; }
+  .hero { height:100vh; }
+  .hero .hero-title { font-size:26px; }
+  .hero .hero-subtitle,
+  .hero .hero-date { font-size:18px; }
+  .timer-container { gap:10px; }
+  .timer-container .timer-box { width:75px; height:75px; }
+  .timer-container .timer-box .timer-number { font-size:26px; }
+  .timer-container .timer-box .timer-param { font-size:16px; margin-top:4px; }
+
+  .cupple-container .cupple-photos-container .cupple-item img { width:140px; height:140px; }
+  .cupple-container .cupple-message-container .cupple-title { font-size:26px; }
+  .cupple-container .cupple-message-container .cupple-subtitle { font-size:16px; }
+
+  .timeline { margin:0 auto; }
+  .timeline::after { left:22px; width:4px; }
+  .timeline .timeline-left-card,
+  .timeline .timeline-right-card { padding:12px 16px 12px 60px; border-width:4px; }
+  .timeline .timeline-left-card::before,
+  .timeline .timeline-right-card::before { top:12px; left:-12px; border-width:8px 8px 8px 0; }
+  .timeline .card-body h3,
+  .timeline .card-body h5 { font-size:20px; }
+  .timeline .card-body p { font-size:16px; }
+}
+
+/* Çok küçük (≤400px) */
+@media (max-width: 400px) {
+  .hero .hero-title { font-size:22px; }
+  .timer-container .timer-box { width:65px; height:65px; }
+  .timer-container .timer-box .timer-number { font-size:22px; }
+  .timer-container .timer-box .timer-param { font-size:14px; }
+  .timeline .timeline-left-card,
+  .timeline .timeline-right-card { padding:10px 14px 10px 54px; }
+}
+
+/* Ek slider spesifik (≤480px) */
+@media (max-width: 480px) {
+  .image-slider { width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); }
+  .image-slider > *, .image-slider img { width:100vw; }
+}
+
+/* Alternatif mobil timeline (stepper) tasarımı (isteğe bağlı kullanmak için) */
+@media (max-width: 768px) {
+  .timeline { max-width:100%; padding-left:54px; position:relative; }
+  .timeline::after { left:28px; top:0; bottom:0; width:4px; background: var(--alternative-color); border-radius:4px; }
+  .timeline .timeline-left-card,
+  .timeline .timeline-right-card {
+    width:100%; left:0; margin:0 0 32px 0; padding:18px 20px 18px 28px;
+    background:#fff; border:2px solid var(--alternative-color); border-radius:18px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+  }
+  .timeline .row { flex-direction:column; }
+  .timeline .col-lg-4,
+  .timeline .col-lg-8 { width:100%; max-width:100%; }
+  .timeline img {
+    display:block; width:100%; height:auto; margin-bottom:14px;
+    object-fit:cover; border-radius:12px;
+  }
+  .timeline .timeline-left-card::before,
+  .timeline .timeline-right-card::before { display:none; }
+  .timeline .timeline-left-card::after,
+  .timeline .timeline-right-card::after {
+    content:""; position:absolute; top:28px; left:-34px; width:18px; height:18px;
+    background:#fff; border:4px solid var(--primary-color); border-radius:50%; box-shadow:0 0 0 3px #fff;
+  }
+  .timeline .card-body h3,
+  .timeline .card-body h5 { font-size:22px; margin-bottom:8px; line-height:1.25; }
+  .timeline .card-body p { font-size:16px; line-height:1.35; margin-bottom:6px; }
+  .timeline-reveal-wrapper { transform:translateY(60px); }
+  .timeline-reveal-wrapper.is-visible { transform:translateY(0); }
+}
