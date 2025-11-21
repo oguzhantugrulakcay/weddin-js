@@ -1,7 +1,8 @@
 import Cupples from "@/components/cupple";
 import ImageSlider from "@/components/imageSlider";
 import ClientTimer from "@/components/ClientTimer";
-import { TimeLine } from "@/components/timeLine"; // Sadece TimeLine'ı import etmek yeterli
+import { TimeLine } from "@/components/timeLine";
+import { Gallery } from "@/components/gallery";
 
 export default function Home() {
   const timelineEvents = [
@@ -41,7 +42,7 @@ export default function Home() {
       <div className="d-felex justify-content-center align-items-center">
         <h1>Sizleri Aramızda Göremek İsteriz</h1>
       </div>
-      
+      <Gallery galleryName="Düğün Fotoğraf Galerisi" images={["images/bride.jpg", "images/cover_bg_1.jpg", "images/groom.jpg", "images/cover_bg_2.jpg"]} />
       <ClientTimer targetDate="2026-01-03" />
     </div>
   );
