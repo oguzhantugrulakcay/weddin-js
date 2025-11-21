@@ -16,7 +16,7 @@ export default function HomePage() {
                     ]}
                 />
             </div>
-            {today < new Date("2026-01-03") && (
+            {today > new Date("2026-01-03") && (
                 <div className="container">
                     <h1>Nişan fotoğraflarımız</h1>
                     <Gallery
