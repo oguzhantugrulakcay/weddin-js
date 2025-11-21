@@ -24,7 +24,7 @@ export function Timer({ targetDate }) {
         }, 1000);
 
         return () => clearTimeout(timer);
-    }, [timeLeft, targetDate]); // Bağımlılık dizisini kaldırmak her render'da çalışmasını sağlar
+    }, [timeLeft, targetDate]); 
 
     return (
         <div className="timer-container">

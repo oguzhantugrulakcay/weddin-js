@@ -303,19 +303,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .rsvp {
-    background: var(--cta-color);
-    color: var(--surface-color);
+    background: var(--surface-color);
+    color: var(--cta-color);
     margin-bottom: 20px;
     border: 2px solid var(--cta-color);
     border-radius: 15px;
 }
 
-.rsvp h1, .rsvp h2, .rsvp h3 {
-    color: var(--surface-color);
-}
-
 .rsvp form {
-    color: var(--surface-color);;
+    color: var(--cta-color);
     background: transparent;
     border: 0;
     padding-bottom: 20px;
@@ -356,15 +352,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Küçük yardımcı sınıf örneği (opsiyonel) */
-.button-accent {
-    background: var(--accent-color);
-    color: var(--text-color);
+.btn-thematic {
+    background: var(--alternative-color);
+    color: var(--cta-color);
     border: 2px solid var(--cta-color);
-    padding: .6rem 1.2rem;
+    padding: 10px 20px;
     border-radius: 8px;
 }
-
-.button-accent:hover {
+.btn-thematic:hover {
     background: var(--cta-color);
-    color: #fff;
+    color: var(--alternative-color);
+}
+.btn-outline-thematic {
+    background: transparent;
+    color: var(--cta-color);
+    border: 2px solid var(--cta-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+.btn-outline-thematic:hover {
+    background: var(--cta-color);
+    color: var(--alternative-color);
 }

@@ -12,6 +12,9 @@ export default function RSVP() {
                         <label htmlFor="attendance">Kişi Sayısı:</label>
                         <input type="number" id="attendance" name="attendance" className="form-control" required />
                     </div>
+                    <div className="col d-grid">
+                        <button type="submit" className="btn btn-outline-thematic w-100 mt-3">Gönder</button>
+                    </div>
                 </div>
             </form>
         </div>
