@@ -17,6 +17,7 @@ export default function LayoutWrapper({ children }) {
 
   let heroInfo = {};
   const today = new Date();
+  //TODO: tarihleri okunabilir bir formata çevir
   if (today < new Date(siteConfig.events.soz.date)) {
     heroInfo = {
       date: siteConfig.events.soz.date || "",
