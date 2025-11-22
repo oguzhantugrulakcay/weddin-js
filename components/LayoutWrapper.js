@@ -40,7 +40,7 @@ export default function LayoutWrapper({ children }) {
   return (
     <>
       {isHomePage && (
-        <Hero title={`${siteConfig.bride.name} ${siteConfig.bride.surname} & ${siteConfig.groom.name} ${siteConfig.groom.surname}`} subtitle={heroInfo.subtitle} date={heroInfo.date} backgroundImage={heroInfo.backgroundImage} />
+        <Hero bride={{name: siteConfig.bride.name, surname: siteConfig.bride.surname}} groom={{name: siteConfig.groom.name, surname: siteConfig.groom.surname}} subtitle={heroInfo.subtitle} date={heroInfo.date} backgroundImage={heroInfo.backgroundImage} />
       )}
       <Navbar />
       <main className={!isHomePage ? 'container mt-5 pt-5' : 'container'}>
