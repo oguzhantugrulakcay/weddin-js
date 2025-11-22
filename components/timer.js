@@ -19,12 +19,14 @@ export function Timer({ targetDate }) {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
     useEffect(() => {
-        const timer = setTimeout(() => {
+        // Her saniye zamanı yeniden hesaplamak için bir interval kullanmak daha doğrudur.
+        const interval = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
 
-        return () => clearTimeout(timer);
-    }, [timeLeft, targetDate]); 
+        // Bileşen kaldırıldığında interval'ı temizle
+        return () => clearInterval(interval);
+    }, [targetDate]); // Bağımlılık olarak sadece targetDate'i bırakın
 
     return (
         <div className="timer-container">

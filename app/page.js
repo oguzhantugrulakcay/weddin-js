@@ -1,8 +1,7 @@
 import Cupples from "@/components/cupple";
 import ImageSlider from "@/components/imageSlider";
 import ClientTimer from "@/components/ClientTimer";
-import { TimeLine } from "@/components/timeLine";
-import { Gallery } from "@/components/gallery";
+import siteConfig from '@/site.config.js'; 
 
 export default function Home() {
   const today=Date.now();
@@ -10,24 +9,27 @@ export default function Home() {
   if(today<new Date("2026-01-03")){
     event={
       title:"Nişanımıza bekliyoruz",
-      date:"2026-01-03 19:00",
+      date:siteConfig.events.soz.date,
+      locationUrl:siteConfig.events.soz.locationUrl
     }
   } else if(today<new Date("2026-07-15")){
     event={
       title:"Kınaya bekliyoruz",
-      date:"2026-07-15 19:00",
+      date:siteConfig.events.kina.date,
+      locationUrl:siteConfig.events.kina.locationUrl
     }
   }else{
     event={
       title:"Düğünümüze bekliyoruz",
-      date:"2026-07-19 19:00",
+      date:siteConfig.events.wedding.date,
+      locationUrl:siteConfig.events.wedding.locationUrl
     }
   }
   
 
   return (
     <div>
-      <Cupples ladyName={"Hande Gözütok"} gentlemanName={"Oğuzhantuğrul Akçay"} ladyPhotoName={"images/hande-2.jpg"} gentlemanPhotoName={"images/ozi-1.jpg"} iconName={"favorite_border"} messageTitle={"Bir Ömür Boyu Mutluluk"} messageSubtitle={"Sizleri Aramızda Görmek İsteriz"} />
+      <Cupples ladyName={`${siteConfig.bride.name} ${siteConfig.bride.surname}`} gentlemanName={`${siteConfig.groom.name} ${siteConfig.groom.surname}`} ladyPhotoName={"images/hande-2.jpg"} gentlemanPhotoName={"images/ozi-1.jpg"} iconName={"favorite_border"} messageTitle={"Bir Ömür Boyu Mutluluk"} messageSubtitle={"Sizleri Aramızda Görmek İsteriz"} />
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
@@ -41,10 +43,10 @@ export default function Home() {
         </div>
         <div className="row d-flex justify-content-center">
           <div className="col-sm-2 d-grid">
-            <a href="#" className="btn btn-thematic mt-4 mb-4">Konum</a>
+            <a href={`${event.locationUrl}`} target="_blank" rel="noopener noreferrer" className="btn btn-thematic mt-4 mb-4">Konum</a>
           </div>
           <div className="col-sm-2 d-grid">
-            <a href="/api/generate-ics" className="btn btn-thematic mt-4 mb-4">Takvime Ekle</a>
+            <a href="/api/generate-ics" target="_blank" rel="noopener noreferrer"  className="btn btn-thematic mt-4 mb-4">Takvime Ekle</a>
           </div>
         </div>
       </div>

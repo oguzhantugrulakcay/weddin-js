@@ -1,34 +1,46 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react'; // useEffect'i import ediyoruz
+import { useEffect } from 'react';
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import RSVP from './rsvp';
+import siteConfig from '@/site.config';
 
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
-  // Bootstrap JS'i client tarafında yüklemek için
   useEffect(() => {
     require('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
 
-  let date;
+  let heroInfo = {};
   const today = new Date();
-  if (today < new Date('2026-01-03')) {
-    date = "03.01.2026";
-  } else if (today < new Date('2026-07-15')) {
-    date = "15.07.2026";
+  if (today < new Date(siteConfig.events.soz.date)) {
+    heroInfo = {
+      date: siteConfig.events.soz.date || "",
+      backgroundImage: "/images/bian_event.jpg",
+      subtitle: "Nişan Davetiyesi"
+    };
+  } else if (today < new Date(siteConfig.events.kina.date)) {
+    heroInfo = {
+      date: siteConfig.events.kina.date || "",
+      backgroundImage: "/images/bian_event.jpg",
+      subtitle: "Kına Davetiyesi"
+    };
   } else {
-    date = "2026 Yazında";
+    heroInfo = {
+      date: process.env.NEXT_PUBLIC_WEDDING_DATE || "",
+      backgroundImage: "/images/bian_event.jpg",
+      subtitle: "Düğün Davetiyesi"
+    };
   }
 
   return (
     <>
       {isHomePage && (
-        <Hero title="Hande & Oğuzhantuğrul" subtitle="Nişan Davetiyesi" date={date} backgroundImage="/images/bian_event.jpg" />
+        <Hero title={`${siteConfig.bride.name} ${siteConfig.bride.surname} & ${siteConfig.groom.name} ${siteConfig.groom.surname}`} subtitle={heroInfo.subtitle} date={heroInfo.date} backgroundImage={heroInfo.backgroundImage} />
       )}
       <Navbar />
       <main className={!isHomePage ? 'container mt-5 pt-5' : 'container'}>
