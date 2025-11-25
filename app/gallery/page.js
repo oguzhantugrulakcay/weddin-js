@@ -9,10 +9,22 @@ export default function HomePage() {
                 <Gallery
                     galleryName=""
                     images={[
-                        "images/bride.jpg",
-                        "images/cover_bg_1.jpg",
-                        "images/groom.jpg",
-                        "images/cover_bg_2.jpg"
+                        "images/asansor.JPG",
+                        "images/besiktas.JPG",
+                        "images/camlica.JPG",
+                        "images/dugun.JPG",
+                        "images/eniste_dogum_gunu_1.JPG",
+                        "images/eniste_dogum_gunu_2.JPG",
+                        "images/kahvalti.JPG",
+                        "images/konser.JPG",
+                        "images/ltb.JPG",
+                        "images/ozi_ev_ayna.JPG",
+                        "images/taksim.JPG",
+                        "images/teklif.JPG",
+                        "images/tekne.JPG",
+                        "images/tuzla.JPG",
+                        "images/yilbasi.JPG"
+
                     ]}
                 />
             </div>

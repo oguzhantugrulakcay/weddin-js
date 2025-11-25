@@ -13,12 +13,15 @@ function formatDate(d) {
     }).replace(',', ' -');
 }
 
-export function TimeLineItem({ title, description, location, date }) {
+export function TimeLineItem({ title, description, location, date,note }) {
     return (
         <div className="timeline-item">
             <div className="timeline-item-content">
                 <h3>{title}</h3>
-                <p>{description}</p>
+                <p>{description}
+                    <br></br>
+                    <i>{note}</i>
+                </p>
                 <p className="date">{formatDate(date)}</p>
                 <p className="tag">{location}</p>
                 <span className="circle"></span>
@@ -86,6 +89,7 @@ function TimeLine({ items = [] }) {
                                             description={item.description}
                                             date={item.date}
                                             location={item.location}
+                                            note={item.note}
                                         />
                                     </div>
                                 </div>

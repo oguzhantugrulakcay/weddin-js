@@ -104,6 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero .hero-subtitle {
+    padding-top:10px;
     font-size: 30px;
 }
 
@@ -193,6 +194,12 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
     border: 2px solid var(--cta-color);
     background: var(--surface-alt-color);
+}
+
+.cupple-container .cupple-message-container {
+    margin-top: 20px;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .cupple-container .cupple-message-container .cupple-title {
@@ -308,6 +315,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
     border: 2px solid var(--cta-color);
     border-radius: 15px;
+}
+
+.rsvp h2 {
+    margin-top: 20px;
 }
 
 .rsvp form {

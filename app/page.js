@@ -50,7 +50,20 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <ImageSlider images={["images/hande-2.jpg", "images/cover_bg_1.jpg"]} />
+      <ImageSlider images={["images/asansor.JPG",
+                        "images/besiktas.JPG",
+                        "images/camlica.JPG",
+                        "images/dugun.JPG",
+                        "images/eniste_dogum_gunu_1.JPG",
+                        "images/eniste_dogum_gunu_2.JPG",
+                        "images/kahvalti.JPG",
+                        "images/konser.JPG",
+                        "images/ltb.JPG",
+                        "images/taksim.JPG",
+                        "images/teklif.JPG",
+                        "images/tekne.JPG",
+                        "images/tuzla.JPG",
+                        "images/yilbasi.JPG"]} />
       <div className="d-felex justify-content-center align-items-center">
 
       </div>

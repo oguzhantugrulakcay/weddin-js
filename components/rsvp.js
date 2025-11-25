@@ -64,7 +64,7 @@ export default function RSVP() {
 
     return (
         <div className="container rsvp">
-            <h2>Geliyorsunuz değil mi?</h2>
+            <h2>Geliyorsunuz öyle değil mi?</h2>
             <form className="rsvp-form text-start" onSubmit={handleSubmit}>
                 <div className="row g-3 align-items-end">
                     <div className="col-sm-12 col-md">
@@ -72,7 +72,7 @@ export default function RSVP() {
                         <input type="text" id="fullname" name="fullname" className="form-control" required />
                     </div>
                     <div className="col-sm-12 col-md">
-                        <label htmlFor="userCount" className="form-label">Kişi Katılıyorsunuz:</label>
+                        <label htmlFor="userCount" className="form-label">Kaç Kişi Katılıyorsunuz?:</label>
                         <input type="number" id="userCount" name="userCount" className="form-control" required min="1" />
                     </div>
                     <div className="col-sm-12 col-md d-grid">
