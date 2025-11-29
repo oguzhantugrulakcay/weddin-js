@@ -6,7 +6,7 @@ export default function HomePage() {
       id: 1, 
       title: "Nişan Töreni", 
       description: "Şimdi sıra nişanımızda! Sizleri de aramızda görmekten mutluluk duyarız.", 
-      location: "Teras Dragos, Kartal/İstanbul",
+      location: "Teras Dragos Bi'an Event Salonu, Kartal/İstanbul",
       date: new Date("2026-01-03T19:00:00"),
       image: "images/bian_event.jpg"
     }
