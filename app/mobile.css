@@ -73,7 +73,10 @@
   .timer-container .timer-box { width:75px; height:75px; }
   .timer-container .timer-box .timer-number { font-size:26px; }
   .timer-container .timer-box .timer-param { font-size:16px; margin-top:4px; }
-
+  .cupple-container .cupple-photos-container {
+    flex-direction: row;
+    gap: 8px;
+  }
   .cupple-container .cupple-photos-container .cupple-item img { width:140px; height:140px; }
   .cupple-container .cupple-message-container .cupple-title { font-size:26px; }
   .cupple-container .cupple-message-container .cupple-subtitle { font-size:16px; }

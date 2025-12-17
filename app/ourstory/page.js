@@ -33,49 +33,49 @@ export default function HomePage() {
       description:"Kartal Atalar Sürücü Kursunda eğitmen ve öğrenci olarak tanıştık.",
       location:"Kartal/İstanbul",
       date: new Date("2024-08-03T10:00:00"),
-      image:"images/motor_1.JPG"
+      image:"images/galery/motor_1.JPG"
     },{
       id: 5,
       title:"Sevgili Olduk",
       description:"Birlikte geçirdiğimiz güzel anların bizim için artık bir anlamı vardı.",
       location:"Kartal/İstanbul",
       date: new Date("2024-09-29T10:00:00"),
-      image:"images/sahil.JPG"
+      image:"images/galery/sahil.JPG"
     },{
       id: 6,
       title:"İlk Kahvaltımız",
       description:"Beykoz'da birlikte yaptığımız lezzetli kahvaltı.",
       location:"Beykoz/İstanbul",
       date: new Date("2024-10-10T19:00:00"),
-      image:"images/kahvalti.JPG"
+      image:"images/galery/kahvalti.JPG"
     },{
       id: 7,
       title:"İlk Konserimiz",
       description:"Harbiye'de hem heyecanlıydık hem coşkulu.",
       location:"Harbiye/İstanbul",
       date: new Date("2024-10-08T20:00:00"),
-      image:"images/harbiye.JPG"
+      image:"images/galery/harbiye.JPG"
     },{
       id: 8,
       title:"İlk Adım",
       description:"Ve evlilik teklifimiz...",
       location:"Beşiktaş/İstanbul",
       date: new Date("2025-09-29T15:00:00"),
-      image:"images/tektas.JPG"
+      image:"images/galery/tektas.JPG"
     },{
       id:9,
       title:"İlk Davetimiz",
       description:"Ezgi ve Mert çiftine sevgiler ;)",
       location:"Ataşehir/İstanbul",
       date: new Date("2024-12-22T18:00:00"),
-      image:"images/dugun.JPG"
+      image:"images/galery/dugun.JPG"
     },{
       id:10,
       title:"Yeni Yıl Yeni Mutluluklar",
       description:"Sevdiklerimiz ile birlikte yeni yılı karşıladık.",
       location:"Kadiköy/İstanbul",
       date: new Date("2024-12-31T23:59:00"),
-      image:"images/yilbasi_toplu.JPG"
+      image:"images/galery/yilbasi_toplu.JPG"
     },{
       id:11,
       title:"Bol bol gezdik...",
@@ -83,7 +83,7 @@ export default function HomePage() {
       note:"Not: Aras çabuk büyü daha gezeceğimiz yerler var. ;)",
       location:"Çeşitli Lokasyonlar",
       date: new Date("2025-03-01T00:00:00"),
-      image:"images/hababam.JPG"
+      image:"images/galery/hababam.JPG"
     },
     {
       id:12,
@@ -91,7 +91,7 @@ export default function HomePage() {
       description:"Dikkat aramızda Stj. Mali Müşavir var :)",
       location:"Göztepe/İstanbul",
       date: new Date("2025-05-17T00:00:00"),
-      image:"images/sinav.JPG"
+      image:"images/galery/sinav.JPG"
     },
     {
       id:13,
@@ -100,7 +100,7 @@ export default function HomePage() {
       note:"Hande <3 Yasin, Burcu <3 Anıl ve Arven",
       location:"İstanbul",
       date: new Date("2025-09-18T00:00:00"),
-      image:"images/ekip.JPG"
+      image:"images/galery/ekip.JPG"
     },
     {
       id:14,
@@ -108,7 +108,7 @@ export default function HomePage() {
       description:"Anneler gününde ailelerimizi bir araya getirdik.",
       location:"Kadiköy/İstanbul",
       date: new Date("2025-05-10T00:00:00"),
-      image:"images/anneler.JPG"
+      image:"images/galery/anneler.JPG"
     }
   ];
   return (
