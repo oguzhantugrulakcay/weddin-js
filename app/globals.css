@@ -26,8 +26,8 @@
     --alternative-color: var(--surface-color);
 
     /* Fonts */
-    --body-font: 'Lora', serif;
-    --header-font: 'Great Vibes', cursive;
+    --body-font: var(--font-lora), serif;
+    --header-font: var(--font-great-vibes), cursive;
 }
 
 body {
