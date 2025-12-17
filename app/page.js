@@ -55,7 +55,6 @@ export default function Home() {
                         "images/galery/camlica.JPG",
                         "images/galery/dugun.JPG",
                         "images/galery/eniste_dogum_gunu_1.JPG",
-                        "images/galery/eniste_dogum_gunu_2.JPG",
                         "images/galery/kahvalti.JPG",
                         "images/galery/konser.JPG",
                         "images/galery/ltb.JPG",
