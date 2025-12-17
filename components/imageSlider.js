@@ -2,8 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-// Bu satırı kaldırıyoruz, çünkü sunucuda hataya neden oluyor.
-// import { Carousel } from 'bootstrap';
+import { shimmer, toBase64 } from '@/components/imagePlaceholder';
 
 export default function ImageSlider({ images }) {
     const carouselRef = useRef(null);
@@ -28,12 +27,18 @@ export default function ImageSlider({ images }) {
                     {images.map((image, index) => (
                         <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
                             <div style={{ position: 'relative', height: '500px', width: '100%' }}>
-                                <Image 
-                                    src={`/${image}`} 
+                                <Image
+                                    src={`/${image}`}
                                     alt={`Slide ${index}`}
                                     fill
                                     style={{ objectFit: "cover" }}
                                     className="d-block w-100 rounded"
+                                    priority={index === 0}
+                                    loading={index === 0 ? 'eager' : undefined}
+                                    sizes="(max-width: 768px) 100vw, 900px"
+                                    placeholder="blur"
+                                    blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(900, 500))}`}
+                                    onLoadingComplete={(img) => { img.style.opacity = '1'; }}
                                 />
                             </div>
                         </div>

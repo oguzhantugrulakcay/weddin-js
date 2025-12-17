@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-
+import { shimmer, toBase64 } from '@/components/imagePlaceholder';
 
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -27,6 +27,10 @@ export function Gallery({ galleryName, images }) {
                                 height={300}
                                 style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                                 className="img-fluid rounded"
+                                sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 400px"
+                                placeholder="blur"
+                                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(400, 300))}`}
+                                priority={i < 3}
                             />
                         </div>
                     </div>

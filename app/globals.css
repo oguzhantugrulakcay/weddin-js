@@ -328,6 +328,8 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 20px;
 }
 
+.d-block.w-100.rounded { opacity: 0; transition: opacity .3s ease; }
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;
