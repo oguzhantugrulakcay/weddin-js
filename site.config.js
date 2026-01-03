@@ -15,8 +15,8 @@ const siteConfig = {
     },
     kina: {
       date: "2026-07-15 19:00",
-      venue: "Suare Event VIP Salonu, Tuzla/İstanbul",
-      locationUrl: "https://maps.app.goo.gl/NEKVBsZNaiH1aeGe8",
+      venue: "Aydos Düğün Davet Saklıbahçe, Kartal/İstanbul",
+      locationUrl: "https://maps.app.goo.gl/84MBZjxygf2dWiHs5",
     },
     wedding: {
       date: "2026-07-19 19:00",
