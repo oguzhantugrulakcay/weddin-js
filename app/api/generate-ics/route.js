@@ -35,7 +35,7 @@ export async function GET(request) {
         };
     };
 
-    if (date < new Date(siteConfig.events.soz.date)) {
+    if (date <= new Date(siteConfig.events.soz.date)) {
         const times = getEventTimes(siteConfig.events.soz.date);
         eventDetails = {
             title: `${siteConfig.bride.name} & ${siteConfig.groom.name} Nişan Töreni`,
@@ -45,7 +45,7 @@ export async function GET(request) {
             location: siteConfig.events.soz.venue,
             locationUrl: siteConfig.events.soz.locationUrl,
         };
-    } else if (date < new Date(siteConfig.events.kina.date)) {
+    } else if (date <= new Date(siteConfig.events.kina.date)) {
         const times = getEventTimes(siteConfig.events.kina.date);
         eventDetails = {
             title: `${siteConfig.bride.name} Kına Gecesi`,

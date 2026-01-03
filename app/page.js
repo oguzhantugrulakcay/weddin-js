@@ -3,16 +3,22 @@ import ImageSlider from "@/components/imageSlider";
 import ClientTimer from "@/components/ClientTimer";
 import siteConfig from '@/site.config.js'; 
 
+function addDays(dateLike, days) {
+  const d = new Date(dateLike);
+  d.setDate(d.getDate() + days);
+  return d;
+}
+
 export default function Home() {
   const today=Date.now();
   var event=null;
-  if(today<new Date("2026-01-03")){
+  if(today<addDays(siteConfig.events.soz.date, 1)){
     event={
       title:"Nişanımıza bekliyoruz",
       date:siteConfig.events.soz.date,
       locationUrl:siteConfig.events.soz.locationUrl
     }
-  } else if(today<new Date("2026-07-15")){
+  } else if(today<addDays(siteConfig.events.kina.date, 1)){
     event={
       title:"Kınaya bekliyoruz",
       date:siteConfig.events.kina.date,
