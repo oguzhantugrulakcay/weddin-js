@@ -1,13 +1,6 @@
 import Image from 'next/image';
 import { shimmer, toBase64 } from '@/components/imagePlaceholder';
-
-const formatDateTime = (date) => {
-  const d = new Date(date);
-  return {
-    date: `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`,
-    time: `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`,
-  };
-};
+import { formatDateTimeTR } from '@/lib/dateUtils';
 
 export default function Hero({ bride, groom, events = [], backgroundImage }) {
 
@@ -27,15 +20,14 @@ export default function Hero({ bride, groom, events = [], backgroundImage }) {
       </div>
       <div className="hero-texts font-ballet">
         <h1 className="hero-title">{`${bride.name}`}<br /> & <br />{`${groom.name}`}</h1>
-        {events.map((event) => {
-          const formatted = formatDateTime(event.date);
-          return (
-            <div key={event.key}>
+        <div className="hero-event-list">
+          {events.map((event) => (
+            <div className="hero-event-item" key={event.key}>
               <p className="hero-subtitle">{event.subtitle}</p>
-              <p className="hero-date">{formatted.date} {formatted.time}</p>
+              <p className="hero-date">{formatDateTimeTR(event.date)}</p>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );

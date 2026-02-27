@@ -6,6 +6,7 @@ import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import RSVP from './rsvp';
 import siteConfig from '@/site.config';
+import { getHeroEvents } from '@/lib/eventUtils';
 
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
@@ -15,37 +16,10 @@ export default function LayoutWrapper({ children }) {
     require('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
 
-  let heroInfo = {};
-  const today = new Date();
-  //TODO: tarihleri okunabilir bir formata çevir
-  if (today < new Date(siteConfig.events.soz.date)) {
-    heroInfo = {
-      backgroundImage: "/images/bian_event.jpg",
-      events: [
-        {
-          key: "soz",
-          subtitle: "Nişan Davetiyesi",
-          date: siteConfig.events.soz.date || "",
-        },
-      ],
-    };
-  } else {
-    heroInfo = {
-      backgroundImage: "/images/bian_event.jpg",
-      events: [
-        {
-          key: "kina",
-          subtitle: "Kına Davetiyesi",
-          date: siteConfig.events.kina.date || "",
-        },
-        {
-          key: "wedding",
-          subtitle: "Düğün Davetiyesi",
-          date: siteConfig.events.wedding.date || "",
-        },
-      ],
-    };
-  }
+  const heroInfo = {
+    backgroundImage: "/images/bian_event.jpg",
+    events: getHeroEvents(siteConfig, new Date()),
+  };
 
   return (
     <>

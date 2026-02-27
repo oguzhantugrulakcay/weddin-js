@@ -53,8 +53,9 @@ function TimeLine({ items = [] }) {
             },
             { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
         );
-        revealRefs.current.forEach(el => el && obs.observe(el));
-        return () => revealRefs.current.forEach(el => el && obs.unobserve(el));
+        const currentRefs = revealRefs.current;
+        currentRefs.forEach(el => el && obs.observe(el));
+        return () => currentRefs.forEach(el => el && obs.unobserve(el));
     }, [sortedItems]);
 
     return (

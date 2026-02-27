@@ -1,54 +1,40 @@
 import Cupples from "@/components/cupple";
 import ImageSlider from "@/components/imageSlider";
 import ClientTimer from "@/components/ClientTimer";
-import siteConfig from '@/site.config.js'; 
+import siteConfig from "@/site.config.js";
+import { formatDateTimeTR } from "@/lib/dateUtils";
+import { getHomepageEvents } from "@/lib/eventUtils";
 
-function addDays(dateLike, days) {
-  const d = new Date(dateLike);
-  d.setDate(d.getDate() + days);
-  return d;
-}
+const homeSliderImages = [
+  "images/galery/asansor.JPG",
+  "images/galery/besiktas.JPG",
+  "images/galery/camlica.JPG",
+  "images/galery/dugun.JPG",
+  "images/galery/eniste_dogum_gunu_1.JPG",
+  "images/galery/kahvalti.JPG",
+  "images/galery/konser.JPG",
+  "images/galery/ltb.JPG",
+  "images/galery/taksim.JPG",
+  "images/galery/teklif.JPG",
+  "images/galery/tekne.JPG",
+  "images/galery/tuzla.JPG",
+  "images/galery/yilbasi.JPG",
+];
 
 export default function Home() {
-  const today = new Date();
-  let eventsToShow = [];
-
-  if (today < new Date(siteConfig.events.soz.date)) {
-    eventsToShow = [
-      {
-        key: "soz",
-        title: "Nişanımıza bekliyoruz",
-        date: siteConfig.events.soz.date,
-        locationUrl: siteConfig.events.soz.locationUrl,
-      },
-    ];
-  } else {
-    eventsToShow = [
-      {
-        key: "kina",
-        title: "Kınaya bekliyoruz",
-        date: siteConfig.events.kina.date,
-        locationUrl: siteConfig.events.kina.locationUrl,
-      },
-      {
-        key: "wedding",
-        title: "Düğünümüze bekliyoruz",
-        date: siteConfig.events.wedding.date,
-        locationUrl: siteConfig.events.wedding.locationUrl,
-      },
-    ];
-  }
-  
+  const eventsToShow = getHomepageEvents(siteConfig, new Date());
 
   return (
     <div>
       <Cupples ladyName={`${siteConfig.bride.name} ${siteConfig.bride.surname}`} gentlemanName={`${siteConfig.groom.name} ${siteConfig.groom.surname}`} ladyPhotoName={"images/hande-2.jpg"} gentlemanPhotoName={"images/ozi-1.jpg"} iconName={"favorite_border"} messageTitle={"Bir Ömür Boyu Mutluluk"} messageSubtitle={"Sizleri Aramızda Görmek İsteriz"} />
-      {eventsToShow.map((event) => (
-        <div className="container" key={event.key}>
+      <div className="event-stack">
+        {eventsToShow.map((event) => (
+          <section className="container event-panel" key={event.key}>
           <div className="row">
             <div className="col-sm-12 text-center">
-              <h2>{event.title}</h2>
-              <p>{event.date}</p>
+              <h2 className="event-title">{event.title}</h2>
+              <p className="event-date">{formatDateTimeTR(event.date)}</p>
+              <p className="event-venue">{event.venue}</p>
             </div>
           </div>
           <div className="row">
@@ -64,21 +50,10 @@ export default function Home() {
               <a href={`/api/generate-ics?event=${event.key}`} target="_blank" rel="noopener noreferrer" className="btn btn-thematic mt-4 mb-4">Takvime Ekle</a>
             </div>
           </div>
-        </div>
-      ))}
-      <ImageSlider images={["images/galery/asansor.JPG",
-                        "images/galery/besiktas.JPG",
-                        "images/galery/camlica.JPG",
-                        "images/galery/dugun.JPG",
-                        "images/galery/eniste_dogum_gunu_1.JPG",
-                        "images/galery/kahvalti.JPG",
-                        "images/galery/konser.JPG",
-                        "images/galery/ltb.JPG",
-                        "images/galery/taksim.JPG",
-                        "images/galery/teklif.JPG",
-                        "images/galery/tekne.JPG",
-                        "images/galery/tuzla.JPG",
-                        "images/galery/yilbasi.JPG"]} />
+          </section>
+        ))}
+      </div>
+      <ImageSlider images={homeSliderImages} />
       <div className="d-felex justify-content-center align-items-center">
 
       </div>

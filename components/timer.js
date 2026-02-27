@@ -1,9 +1,10 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { parseSiteDate } from '@/lib/dateUtils';
 
 export function Timer({ targetDate }) {
-    const calculateTimeLeft = () => {
-        const difference = +new Date(targetDate) - +new Date();
+    const calculateTimeLeft = useCallback(() => {
+        const difference = +parseSiteDate(targetDate) - +new Date();
         let timeLeft = {};
         if (difference > 0) {
             timeLeft = {
@@ -14,19 +15,17 @@ export function Timer({ targetDate }) {
             };
         }
         return timeLeft;
-    };
+    }, [targetDate]);
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
     useEffect(() => {
-        // Her saniye zamanı yeniden hesaplamak için bir interval kullanmak daha doğrudur.
         const interval = setInterval(() => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
 
-        // Bileşen kaldırıldığında interval'ı temizle
         return () => clearInterval(interval);
-    }, [targetDate]); // Bağımlılık olarak sadece targetDate'i bırakın
+    }, [calculateTimeLeft]);
 
     return (
         <div className="timer-container">

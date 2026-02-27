@@ -1,13 +1,18 @@
 import nodemailer from 'nodemailer';
+import siteConfig from '@/site.config.js';
+import { getDefaultEventType } from '@/lib/eventUtils';
 
 export async function POST(req) {
   try {
     const { fullname, userCount } = await req.json();
     const now = new Date();
-    let event;
-    if (now < new Date('2026-01-03')) event = 'Nişan Töreni';
-    else if (now < new Date('2026-07-15')) event = 'Kına Gecesi';
-    else event = 'Düğün Töreni';
+    const eventType = getDefaultEventType(siteConfig, now);
+    const eventNames = {
+      soz: 'Nişan Töreni',
+      kina: 'Kına Gecesi',
+      wedding: 'Düğün Töreni',
+    };
+    const event = eventNames[eventType];
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
