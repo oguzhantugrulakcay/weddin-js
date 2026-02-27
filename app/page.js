@@ -3,6 +3,12 @@ import ImageSlider from "@/components/imageSlider";
 import ClientTimer from "@/components/ClientTimer";
 import siteConfig from '@/site.config.js'; 
 
+function addDays(dateLike, days) {
+  const d = new Date(dateLike);
+  d.setDate(d.getDate() + days);
+  return d;
+}
+
 export default function Home() {
   const today = new Date();
   let eventsToShow = [];
