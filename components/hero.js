@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import { shimmer, toBase64 } from '@/components/imagePlaceholder';
 
-export default function Hero({ bride, groom, subtitle, date, backgroundImage }) {
+const formatDateTime = (date) => {
   const d = new Date(date);
-  const formattedDate = `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
-  const formattedTime = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  return {
+    date: `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`,
+    time: `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`,
+  };
+};
+
+export default function Hero({ bride, groom, events = [], backgroundImage }) {
 
   return (
     <div className="hero">
@@ -22,8 +27,15 @@ export default function Hero({ bride, groom, subtitle, date, backgroundImage }) 
       </div>
       <div className="hero-texts font-ballet">
         <h1 className="hero-title">{`${bride.name}`}<br /> & <br />{`${groom.name}`}</h1>
-        <p className="hero-subtitle">{subtitle}</p>
-        <p className="hero-date">{formattedDate} {formattedTime}</p>
+        {events.map((event) => {
+          const formatted = formatDateTime(event.date);
+          return (
+            <div key={event.key}>
+              <p className="hero-subtitle">{event.subtitle}</p>
+              <p className="hero-date">{formatted.date} {formatted.time}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

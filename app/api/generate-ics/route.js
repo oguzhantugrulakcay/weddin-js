@@ -3,6 +3,7 @@ import siteConfig from '@/site.config.js'; // Yapılandırma dosyasını import 
 
 export async function GET(request) {
     const date = Date.now();
+    const eventType = new URL(request.url).searchParams.get('event');
     let eventDetails;
 
     // .ics metin alanlarındaki özel karakterleri temizler
@@ -35,9 +36,9 @@ export async function GET(request) {
         };
     };
 
-    if (date < new Date(siteConfig.events.soz.date)) {
+    const buildSozEvent = () => {
         const times = getEventTimes(siteConfig.events.soz.date);
-        eventDetails = {
+        return {
             title: `${siteConfig.bride.name} & ${siteConfig.groom.name} Nişan Töreni`,
             start: times.start,
             end: times.end,
@@ -45,9 +46,11 @@ export async function GET(request) {
             location: siteConfig.events.soz.venue,
             locationUrl: siteConfig.events.soz.locationUrl,
         };
-    } else if (date < new Date(siteConfig.events.kina.date)) {
+    };
+
+    const buildKinaEvent = () => {
         const times = getEventTimes(siteConfig.events.kina.date);
-        eventDetails = {
+        return {
             title: `${siteConfig.bride.name} Kına Gecesi`,
             start: times.start,
             end: times.end,
@@ -55,9 +58,11 @@ export async function GET(request) {
             location: siteConfig.events.kina.venue,
             locationUrl: siteConfig.events.kina.locationUrl,
         };
-    } else {
+    };
+
+    const buildWeddingEvent = () => {
         const times = getEventTimes(siteConfig.events.wedding.date);
-        eventDetails = {
+        return {
             title: `${siteConfig.bride.name} & ${siteConfig.groom.name} Düğün Töreni`,
             start: times.start,
             end: times.end,
@@ -65,6 +70,20 @@ export async function GET(request) {
             location: siteConfig.events.wedding.venue,
             locationUrl: siteConfig.events.wedding.locationUrl,
         };
+    };
+
+    if (eventType === 'soz') {
+        eventDetails = buildSozEvent();
+    } else if (eventType === 'kina') {
+        eventDetails = buildKinaEvent();
+    } else if (eventType === 'wedding') {
+        eventDetails = buildWeddingEvent();
+    } else if (date < new Date(siteConfig.events.soz.date)) {
+        eventDetails = buildSozEvent();
+    } else if (date < new Date(siteConfig.events.kina.date)) {
+        eventDetails = buildKinaEvent();
+    } else {
+        eventDetails = buildWeddingEvent();
     }
 
     const slugify = (text) => {

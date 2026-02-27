@@ -20,28 +20,37 @@ export default function LayoutWrapper({ children }) {
   //TODO: tarihleri okunabilir bir formata çevir
   if (today < new Date(siteConfig.events.soz.date)) {
     heroInfo = {
-      date: siteConfig.events.soz.date || "",
       backgroundImage: "/images/bian_event.jpg",
-      subtitle: "Nişan Davetiyesi"
-    };
-  } else if (today < new Date(siteConfig.events.kina.date)) {
-    heroInfo = {
-      date: siteConfig.events.kina.date || "",
-      backgroundImage: "/images/bian_event.jpg",
-      subtitle: "Kına Davetiyesi"
+      events: [
+        {
+          key: "soz",
+          subtitle: "Nişan Davetiyesi",
+          date: siteConfig.events.soz.date || "",
+        },
+      ],
     };
   } else {
     heroInfo = {
-      date: process.env.NEXT_PUBLIC_WEDDING_DATE || "",
       backgroundImage: "/images/bian_event.jpg",
-      subtitle: "Düğün Davetiyesi"
+      events: [
+        {
+          key: "kina",
+          subtitle: "Kına Davetiyesi",
+          date: siteConfig.events.kina.date || "",
+        },
+        {
+          key: "wedding",
+          subtitle: "Düğün Davetiyesi",
+          date: siteConfig.events.wedding.date || "",
+        },
+      ],
     };
   }
 
   return (
     <>
       {isHomePage && (
-        <Hero bride={{name: siteConfig.bride.name, surname: siteConfig.bride.surname}} groom={{name: siteConfig.groom.name, surname: siteConfig.groom.surname}} subtitle={heroInfo.subtitle} date={heroInfo.date} backgroundImage={heroInfo.backgroundImage} />
+        <Hero bride={{name: siteConfig.bride.name, surname: siteConfig.bride.surname}} groom={{name: siteConfig.groom.name, surname: siteConfig.groom.surname}} events={heroInfo.events} backgroundImage={heroInfo.backgroundImage} />
       )}
       <Navbar />
       <main className={!isHomePage ? 'container mt-5 pt-5' : 'container'}>
