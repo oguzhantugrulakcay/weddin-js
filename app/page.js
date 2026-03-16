@@ -26,7 +26,15 @@ export default function Home() {
 
   return (
     <div>
-      <Cupples ladyName={`${siteConfig.bride.name} ${siteConfig.bride.surname}`} gentlemanName={`${siteConfig.groom.name} ${siteConfig.groom.surname}`} ladyPhotoName={"images/hande-2.jpg"} gentlemanPhotoName={"images/ozi-1.jpg"} iconName={"favorite_border"} messageTitle={"Bir Ömür Boyu Mutluluk"} messageSubtitle={"Sizleri Aramızda Görmek İsteriz"} />
+      <Cupples
+        ladyName={`${siteConfig.bride.name} ${siteConfig.bride.surname}`}
+        gentlemanName={`${siteConfig.groom.name} ${siteConfig.groom.surname}`}
+        ladyPhotoName={siteConfig.bride.photo}
+        gentlemanPhotoName={siteConfig.groom.photo}
+        iconName={siteConfig.coupleSection.iconName}
+        messageTitle={siteConfig.coupleSection.messageTitle}
+        messageSubtitle={siteConfig.coupleSection.messageSubtitle}
+      />
       <div className="event-stack">
         {eventsToShow.map((event) => (
           <section className="container event-panel" key={event.key}>
