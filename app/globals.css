@@ -15,6 +15,8 @@
     --text-color: var(--color-text);
     --border-color: rgba(179, 80, 122, 0.22);
     --shadow-soft: 0 14px 35px rgba(140, 62, 96, 0.14);
+    --timer-gradient-start: #cd6c95;
+    --cta-gradient-start: #c7628d;
     --main-color: var(--bg-color);
     --primary-color: var(--text-color);
     --secondary-color: var(--cta-color);
@@ -30,9 +32,9 @@ body {
     font-size: 19px;
     color: var(--text-color);
     text-align: center;
-    background-image: radial-gradient(circle at top right, rgba(248, 215, 207, 0.55), transparent 40%),
-        radial-gradient(circle at 15% 20%, rgba(200, 239, 228, 0.45), transparent 45%),
-        linear-gradient(160deg, #fff8f5 0%, #fff3ef 100%);
+    background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--color-peach-blush) 55%, transparent), transparent 40%),
+        radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--color-mint-breeze) 45%, transparent), transparent 45%),
+        linear-gradient(160deg, var(--bg-color) 0%, var(--color-soft-rose) 100%);
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--header-font);
@@ -141,7 +143,7 @@ h1, h2, h3, h4, h5, h6 {
 .timer-container .timer-box {
     width: 110px;
     height: 110px;
-    background: linear-gradient(160deg, #cd6c95 0%, #b3507a 100%);
+    background: linear-gradient(160deg, var(--timer-gradient-start) 0%, var(--cta-color) 100%);
     color: #fff;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.5);
@@ -207,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border: 3px solid rgba(179, 80, 122, 0.45);
+    border: 3px solid color-mix(in srgb, var(--cta-color) 45%, transparent);
     box-shadow: var(--shadow-soft);
     background: var(--surface-alt-color);
 }
@@ -416,19 +418,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Küçük yardımcı sınıf örneği (opsiyonel) */
 .btn-thematic {
-    background: linear-gradient(160deg, #c7628d 0%, #b3507a 100%);
+    background: linear-gradient(160deg, var(--cta-gradient-start) 0%, var(--cta-color) 100%);
     color: #fff;
     border: 2px solid transparent;
     padding: 10px 20px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(179, 80, 122, 0.24);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--cta-color) 24%, transparent);
     transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 .btn-thematic:hover {
-    background: linear-gradient(160deg, #c7628d 0%, #b3507a 100%);
+    background: linear-gradient(160deg, var(--cta-gradient-start) 0%, var(--cta-color) 100%);
     color: var(--cta-color);
     color: #fff;
-    box-shadow: 0 12px 24px rgba(179, 80, 122, 0.35);
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--cta-color) 35%, transparent);
     transform: translateY(-2px);
     filter: brightness(1.02);
 }
