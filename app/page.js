@@ -3,26 +3,14 @@ import ImageSlider from "@/components/imageSlider";
 import ClientTimer from "@/components/ClientTimer";
 import siteConfig from "@/site.config.js";
 import { formatDateTimeTR } from "@/lib/dateUtils";
-import { getHomepageEvents } from "@/lib/eventUtils";
+import { getContentStage, getHomepageEvents } from "@/lib/eventUtils";
+import { getFeaturedGalleryImages } from "@/lib/galleryData";
 
-const homeSliderImages = [
-  "images/galery/asansor.JPG",
-  "images/galery/besiktas.JPG",
-  "images/galery/camlica.JPG",
-  "images/galery/dugun.JPG",
-  "images/galery/eniste_dogum_gunu_1.JPG",
-  "images/galery/kahvalti.JPG",
-  "images/galery/konser.JPG",
-  "images/galery/ltb.JPG",
-  "images/galery/taksim.JPG",
-  "images/galery/teklif.JPG",
-  "images/galery/tekne.JPG",
-  "images/galery/tuzla.JPG",
-  "images/galery/yilbasi.JPG",
-];
-
-export default function Home() {
-  const eventsToShow = getHomepageEvents(siteConfig, new Date());
+export default async function Home() {
+  const now = new Date();
+  const eventsToShow = getHomepageEvents(siteConfig, now);
+  const contentStage = getContentStage(siteConfig, now);
+  const homeSliderImages = await getFeaturedGalleryImages(contentStage);
 
   return (
     <div>
@@ -41,6 +29,8 @@ export default function Home() {
           <div className="row">
             <div className="col-sm-12 text-center">
               <h2 className="event-title">{event.title}</h2>
+              <h3 className="event-content-title">{event.contentTitle}</h3>
+              <p className="event-content-description">{event.contentDescription}</p>
               <p className="event-date">{formatDateTimeTR(event.date)}</p>
               <p className="event-venue">{event.venue}</p>
             </div>

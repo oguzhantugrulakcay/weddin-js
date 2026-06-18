@@ -33,8 +33,12 @@
   .cupple-container .cupple-message-container .cupple-title { font-size:30px; }
   .cupple-container .cupple-message-container .cupple-subtitle { font-size:18px; }
   .event-panel { padding:18px 8px 2px; }
+  .event-content-title { font-size:1.05rem; }
+  .event-content-description { font-size:.9rem; padding:0 8px; }
   .event-date { font-size:1rem; }
   .event-venue { font-size:.9rem; padding:0 8px; }
+  .gallery-category-tabs { gap:8px; }
+  .gallery-category-tab { min-width:104px; padding:8px 10px; }
 
   .image-slider { width:100vw; max-width:none; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); padding:0; gap:0; border-radius:0; }
   .image-slider > * { width:100vw; }

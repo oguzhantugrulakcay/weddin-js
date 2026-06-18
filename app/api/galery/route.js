@@ -1,20 +1,8 @@
-import fs from 'fs';
-import path from 'path';
 import { NextResponse } from 'next/server';
+import { getGalleryCategories } from '@/lib/galleryData';
 
 export async function GET() {
-  const imagesDirectory = path.join(process.cwd(), 'public/gallery');
-  
-  try {
-    const fileNames = fs.readdirSync(imagesDirectory);
-    
-    // Sadece resim dosyalarını filtreleyin (jpg, png, webp vb.)
-    const images = fileNames.filter(file => 
-      /\.(jpe?g|png|gif|webp|svg)$/i.test(file)
-    ).map(file => `/gallery/${file}`);
+  const categories = await getGalleryCategories();
 
-    return NextResponse.json(images);
-  } catch (error) {
-    return NextResponse.json({ error: "Klasör bulunamadı" }, { status: 500 });
-  }
+  return NextResponse.json({ categories });
 }
