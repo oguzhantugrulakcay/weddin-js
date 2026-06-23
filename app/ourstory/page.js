@@ -5,27 +5,27 @@ export default function HomePage() {
     { 
       id: 1, 
       title: "Nişan Töreni", 
-      description: "Şimdi sıra nişanımızda! Sizleri de aramızda görmekten mutluluk duyarız.", 
+      description: "03 Ocak 2026, Cumartesi - Saat 19:00", 
       location: "Teras Dragos Bi'an Event Salonu, Kartal/İstanbul",
       date: new Date("2026-01-03T19:00:00"),
       image: "images/bian_event.jpg"
+    },
+    { 
+      id: 2, 
+      title: "Düğün Töreni", 
+      description: "19 Temmuz 2026, Pazar - Saat 19:00", 
+      location: "Suare Event VIP Salonu, Tuzla/İstanbul",
+      date: new Date("2026-07-19T19:00:00"),
+      image: "images/galery/B086B806-6A61-4C93-93E3-F30A091532C6 (1).jpg"
+    },
+    { 
+      id: 3, 
+      title: "Kına Gecesi", 
+      description: "15 Temmuz 2026, Cuma - Saat 20:00", 
+      location: "Aydos Düğün Davet Saklıbahçe, Kartal/İstanbul",
+      date: new Date("2026-07-15T20:00:00"),
+      image: "images/galery/0D152271-D027-4974-9C3D-8F50051ED132.jpg"
     }
-    // { 
-    //   id: 2, 
-    //   title: "Düğün Töreni", 
-    //   description: "19 Temmuz 2026, Pazar - Saat 19:00", 
-    //   location: "Suare Garden VIP Salonu, Tuzla/İstanbul",
-    //   date: new Date("2026-07-19T19:00:00"),
-    //   image: "images/bride.jpg"
-    // },
-    // { 
-    //   id: 3, 
-    //   title: "Kına Gecesi", 
-    //   description: "15 Temmuz 2026, Cuma - Saat 20:00", 
-    //   location: "The Marmara Taksim, İstanbul",
-    //   date: new Date("2026-07-15T20:00:00"),
-    //   image: "images/bride.jpg"
-    // }
     ,
     {
       id: 4,
