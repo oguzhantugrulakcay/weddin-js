@@ -3,30 +3,29 @@ import  TimeLine  from "@/components/timeLine";
 export default function HomePage() {
   const timelineEvents = [
     { 
-      id: 1, 
-      title: "Nişan Töreni", 
-      description: "03 Ocak 2026, Cumartesi - Saat 19:00", 
-      location: "Teras Dragos Bi'an Event Salonu, Kartal/İstanbul",
-      date: new Date("2026-01-03T19:00:00"),
-      image: "images/bian_event.jpg"
-    },
-    { 
-      id: 2, 
-      title: "Düğün Töreni", 
-      description: "19 Temmuz 2026, Pazar - Saat 19:00", 
-      location: "Suare Event VIP Salonu, Tuzla/İstanbul",
-      date: new Date("2026-07-19T19:00:00"),
-      image: "images/galery/B086B806-6A61-4C93-93E3-F30A091532C6 (1).jpg"
-    },
-    { 
-      id: 3, 
-      title: "Kına Gecesi", 
-      description: "15 Temmuz 2026, Cuma - Saat 20:00", 
-      location: "Aydos Düğün Davet Saklıbahçe, Kartal/İstanbul",
-      date: new Date("2026-07-15T20:00:00"),
-      image: "images/galery/0D152271-D027-4974-9C3D-8F50051ED132.jpg"
-    }
-    ,
+  id: 1, 
+  title: "Nişan Töreni", 
+  description: "İki ailenin birleştiği, aşkımızın resmileştirildiği anı. Sevdiklerimizin gözlerinin önünde verilen söz ve yaşanacak güzel günlerin başlangıcı.", 
+  location: "Teras Dragos Bi'an Event Salonu, Kartal/İstanbul",
+  date: new Date("2026-01-03T19:00:00"),
+  image: "images/bian_event.jpg"
+},
+{ 
+  id: 2, 
+  title: "Düğün Töreni", 
+  description: "Hayal ettiğimiz büyük gün! Aşkımızı tüm dünyaya ilan edeceğimiz, en özel insanlarımız ile yaşayacağımız unutulmaz bir akşam. Buradan başlıyor sonsuza dek devam eden hikayemiz.", 
+  location: "Suare Event VIP Salonu, Tuzla/İstanbul",
+  date: new Date("2026-07-19T19:00:00"),
+  image: "images/galery/B086B806-6A61-4C93-93E3-F30A091532C6 (1).jpg"
+},
+{ 
+  id: 3, 
+  title: "Kına Gecesi", 
+  description: "Gelin olmaya hazırlanırken, sevgimiz ve eğlencemiz ile dolu bir gece. Geleneklerimizi yaşadığımız, sevdiklerimiz ile bol bol güldüğümüz, kına yakılarak başlayan yeni dönem.", 
+  location: "Aydos Düğün Davet Saklıbahçe, Kartal/İstanbul",
+  date: new Date("2026-07-15T20:00:00"),
+  image: "images/galery/0D152271-D027-4974-9C3D-8F50051ED132.jpg"
+},
     {
       id: 4,
       title:"Tanıştık",
